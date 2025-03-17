@@ -6,7 +6,6 @@ public class Jugador {
     private Equipo equipo;
 
     public Jugador() {}
-
     public Jugador(int idJugador, String nombre, int partidosJugados, int goles, Equipo equipo) {
         this.idJugador = idJugador;
         this.nombre = nombre;

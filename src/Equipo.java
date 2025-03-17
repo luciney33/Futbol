@@ -54,16 +54,31 @@ public class Equipo {
     }
 
     public String mejorDelantero(){
-        Jugador mejorDelantero = jugadores[0]; //arreglar fallo debo saber si jugadores[0] es null
-        if (jugadores != null) {
+        Jugador mejorDelantero = null;
+        if (jugadores[0] != null) {
+            mejorDelantero = jugadores[0];
             for (int i = 1 ; i < jugadores.length; i++) {
                 if (jugadores[i] != null && jugadores[i].getGoles() > mejorDelantero.getGoles()) {
                     mejorDelantero = jugadores[i];
                 }
             }
         }else {
-            System.out.println("No se encontro el jugador");
+                System.out.println("No se encontro el jugador");
         }
         return mejorDelantero.getNombre();
+    }
+
+    public void ordernarGoles(){
+        Jugador auxJugador = jugadores[0];
+        for (int i = 1; i < jugadores.length; i++) { //esta mal corregirlo en casa
+            if (jugadores[i] != null && jugadores[0] != null && jugadores[i].getGoles() > auxJugador.getGoles()) {
+                jugadores[i] = auxJugador;
+                auxJugador = jugadores[i];
+            }
+        }
+    }
+
+    public int darBaja(int id){
+
     }
 }
