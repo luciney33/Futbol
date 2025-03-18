@@ -69,16 +69,17 @@ public class Equipo {
     }
 
     public void ordernarGoles(){
-        Jugador auxJugador = jugadores[0];
-        for (int i = 1; i < jugadores.length; i++) { //esta mal corregirlo en casa
-            if (jugadores[i] != null && jugadores[0] != null && jugadores[i].getGoles() > auxJugador.getGoles()) {
-                jugadores[i] = auxJugador;
-                auxJugador = jugadores[i];
+        Jugador auxJugador = new Jugador();//esta mal corregirlo en casa
+        for (int i = 0; i < jugadores.length; i++) {
+            for (int j = i + 1; j < jugadores.length; j++) {
+                if (jugadores[i] != null && jugadores[j] != null && jugadores[i].getGoles() < jugadores[j].getGoles()){
+                    auxJugador = jugadores[i];
+                    jugadores[j] = jugadores[i];
+                    jugadores[j] = auxJugador;
+                    auxJugador = jugadores[i];
+                }
             }
         }
     }
 
-    public int darBaja(int id){
-
-    }
 }
