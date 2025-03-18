@@ -78,7 +78,4 @@ public class Equipo {
         }
     }
 
-    public int darBaja(int id){
-
-    }
 }
