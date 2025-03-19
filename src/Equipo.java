@@ -69,15 +69,36 @@ public class Equipo {
     }
 
     public void ordernarGoles(){
-        Jugador auxJugador = new Jugador();//esta mal corregirlo en casa
         for (int i = 0; i < jugadores.length; i++) {
+            Jugador auxJugador = new Jugador();
             for (int j = i + 1; j < jugadores.length; j++) {
                 if (jugadores[i] != null && jugadores[j] != null && jugadores[i].getGoles() < jugadores[j].getGoles()){
                     auxJugador = jugadores[i];
-                    jugadores[j] = jugadores[i];
+                    jugadores[i] = jugadores[j];
                     jugadores[j] = auxJugador;
-                    auxJugador = jugadores[i];
                 }
+            }
+        }
+    }
+    /*Es decir, en una iteración completa de i = 0:
+    Compara i = 0 con j = 1
+    Compara i = 0 con j = 2
+    Compara i = 0 con j = 3
+    ...
+    Luego i = 1:
+    Compara i = 1 con j = 2
+    Compara i = 1 con j = 3
+    */
+
+    public void darBaja(int id){
+        boolean encontrado = false;
+        for (int i = 0; i < jugadores.length; i++) {
+            if (jugadores[i] != null && jugadores[i].getIdJugador() == id) {
+                jugadores[i] = null;
+                encontrado = true;
+            }
+            if (!encontrado) {
+                System.out.println("No se encontro el jugador");
             }
         }
     }
